@@ -52,6 +52,6 @@ public class ParallelTests
     {
         IWebDriver? driver = BrowserStackConfiguration.ConfigureBrowserStack(browser, browserstackOptions);
 
-        BrowserStackConfiguration.RunTest(driver);
+        SingleTest.RunTest(driver);
     }
 }
