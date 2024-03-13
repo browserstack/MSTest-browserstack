@@ -27,7 +27,7 @@ public class LocalTest : BrowserStackConfiguration
             };
         local = ConfigureLocalBrowserStack();
 
-        driver = ConfigureBrowserStack("safari", browserstackOptions);
+        driver = ConfigureBrowserStack("chromium", browserstackOptions);
     }
 
     [TestMethod]

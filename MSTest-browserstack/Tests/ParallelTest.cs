@@ -18,8 +18,7 @@ public class ParallelTests
 {
     public static void RunParallelTests()
     {
-        System.Collections.Generic.Dictionary<string, object> browserstackOptions =
-            new Dictionary<string, object>
+        Thread device1 = new Thread(() => RunTest("chromium", new Dictionary<string, object>
             {
                 { "osVersion", "14" },
                 { "deviceName", "iPhone 12" },
@@ -28,24 +27,37 @@ public class ParallelTests
                 { "buildName", "browserstack-build-1" },
                 { "sessionName", "BStack test" },
                 { "source", "mstest:sample" }
-            };
-        Thread device1 = new Thread(() => RunTest("safari", browserstackOptions));
-        Thread device2 = new Thread(() => RunTest("chrome", browserstackOptions));
-        Thread device3 = new Thread(() => RunTest("firefox", browserstackOptions));
-        Thread device4 = new Thread(() => RunTest("safari", browserstackOptions));
-        Thread device5 = new Thread(() => RunTest("edge", browserstackOptions));
+            }));
+
+        Thread device2 = new Thread(() => RunTest("chrome", new Dictionary<string, object>
+            {
+                { "os", "Windows" },
+                { "osVersion", "10" },
+                { "browserVersion", "latest" },
+                { "local", "false" },
+                { "buildName", "browserstack-build-1" },
+                { "sessionName", "BStack test" },
+                { "source", "mstest:sample" }
+            }));
+
+        Thread device3 = new Thread(() => RunTest("safari", new Dictionary<string, object>
+            {
+                { "os", "OS X" },
+                { "osVersion", "Ventura" },
+                { "browserVersion", "16.5" },
+                { "local", "false" },
+                { "buildName", "browserstack-build-1" },
+                { "sessionName", "BStack test" },
+                { "source", "mstest:sample" }
+            }));
 
         device1.Start();
         device2.Start();
         device3.Start();
-        device4.Start();
-        device5.Start();
 
         device1.Join();
         device2.Join();
         device3.Join();
-        device4.Join();
-        device5.Join();
     }
 
     private static void RunTest(string browser, Dictionary<string, object> browserstackOptions)

@@ -22,7 +22,7 @@ public class SingleTest : BrowserStackConfiguration
                 { "sessionName", "BStack test" },
                 { "source", "mstest:sample" }
             };
-        driver = ConfigureBrowserStack("safari", browserstackOptions);
+        driver = ConfigureBrowserStack("chromium", browserstackOptions);
     }
 
     [TestMethod]
