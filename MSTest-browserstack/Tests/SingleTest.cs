@@ -14,7 +14,6 @@ public class SingleTest : BrowserStackConfiguration
         System.Collections.Generic.Dictionary<string, object> browserstackOptions =
             new Dictionary<string, object>
             {
-                { "browser", "iPhone" },
                 { "os_version", "14" },
                 { "device", "iPhone 12" },
                 { "realMobile", "true" },
@@ -23,7 +22,7 @@ public class SingleTest : BrowserStackConfiguration
                 { "name", "BStack test" },
                 { "browserstack.source", "mstest:sample" }
             };
-        driver = ConfigureBrowserStack("safari", browserstackOptions);
+        driver = ConfigureBrowserStack("chromium", browserstackOptions);
     }
 
     [TestMethod]

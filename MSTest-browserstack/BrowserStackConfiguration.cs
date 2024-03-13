@@ -12,7 +12,7 @@ public class BrowserStackConfiguration
     protected static string? username;
     protected static string? accesskey;
 
-    public static DriverOptions GetBrowserOption(String browser)
+    public static dynamic GetBrowserOption(String browser)
     {
         return browser switch
         {
@@ -45,7 +45,7 @@ public class BrowserStackConfiguration
             return null;
         }
 
-        DriverOptions capability = GetBrowserOption(browser);
+        dynamic capability = GetBrowserOption(browser);
 
         if (browserstackOptions != null)
         {
@@ -53,7 +53,14 @@ public class BrowserStackConfiguration
             browserstackOptions["browserstack.key"] = accesskey;
             foreach (var entry in browserstackOptions)
             {
-                capability.AddAdditionalCapability(entry.Key, entry.Value);
+                if(browser == "edge" || browser == "safari")
+                {
+                    capability.AddAdditionalCapability(entry.Key, entry.Value);
+                }
+                else
+                {
+                    capability.AddAdditionalCapability(entry.Key, entry.Value, true);
+                }
             }
         }
 

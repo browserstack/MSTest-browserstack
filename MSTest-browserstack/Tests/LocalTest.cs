@@ -17,7 +17,6 @@ public class LocalTest : BrowserStackConfiguration
         System.Collections.Generic.Dictionary<string, object> browserstackOptions =
             new Dictionary<string, object>
             {
-                { "browser", "iPhone" },
                 { "os_version", "14" },
                 { "device", "iPhone 12" },
                 { "realMobile", "true" },
@@ -28,7 +27,7 @@ public class LocalTest : BrowserStackConfiguration
             };
         local = ConfigureLocalBrowserStack();
 
-        driver = ConfigureBrowserStack("safari", browserstackOptions);
+        driver = ConfigureBrowserStack("chromium", browserstackOptions);
     }
 
     [TestMethod]
