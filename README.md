@@ -30,12 +30,12 @@ Sample code for running sessions with MStest on Browserstack using SDK. <img src
 
 - To run the single test, execute the following command:
     ```bash
-    dotnet test --filter ClassName=MSTest_browserstack.Tests.SampleTest
+    dotnet test --filter TestCategory=sample-test
     ```
 
 - To run local tests, execute the following command:
     ```bash
-    dotnet test --filter ClassName=MSTest_browserstack.Tests.SampleLocalTest
+    dotnet test --filter TestCategory=sample-local-test
     ```
 
 Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)

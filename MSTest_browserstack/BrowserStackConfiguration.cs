@@ -1,35 +1,31 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-namespace MSTest_browserstack;
+namespace BrowserStack;
 
-public class BrowserStackConfiguration
+[TestClass]
+public class BrowserStackMSTest
 {
-    public static DriverOptions GetBrowserOption(String browser)
-    {
-        return browser switch
-        {
-            "chrome" => new OpenQA.Selenium.Chrome.ChromeOptions(),
-            "firefox" => new OpenQA.Selenium.Firefox.FirefoxOptions(),
-            "safari" => new OpenQA.Selenium.Safari.SafariOptions(),
-            "edge" => new OpenQA.Selenium.Edge.EdgeOptions(),
-            _ => new OpenQA.Selenium.Chrome.ChromeOptions(),
-        };
-    }
+    protected RemoteWebDriver? driver;
+    public BrowserStackMSTest() { }
 
-    public static RemoteWebDriver Configure(String browser)
+    [TestInitialize]
+    public void Init()
     {
-        DriverOptions capability = GetBrowserOption(browser);
+        DriverOptions capability = new OpenQA.Selenium.Chrome.ChromeOptions();
 
         capability.BrowserVersion = "latest";
 
         capability.AddAdditionalOption("bstack:options", capability);
-        RemoteWebDriver driver = new RemoteWebDriver(
+        driver = new RemoteWebDriver(
           new Uri("http://localhost:4444/wd/hub/"),
           capability
         );
-
-        return driver;
     }
 
+    [TestCleanup]
+    public void Cleanup()
+    {
+        driver?.Quit();
+    }
 }
