@@ -25,11 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Tests\" />
     <None Remove="assets\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Tests\" />
     <Folder Include="assets\" />
   </ItemGroup>
 </Project>

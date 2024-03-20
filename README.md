@@ -46,17 +46,17 @@ You can get your BrowserStack credentials from [here](https://www.browserstack.c
 
 - To run the single test, execute the following command:
     ```bash
-    dotnet test --filter ClassName=MSTest_browserstack.SingleTest
+    dotnet test --filter TestCategory=sample-test
     ```
 
 - To run tests in parallel, execute the following command:
     ```bash
-    dotnet test --filter ClassName=MSTest_browserstack.ParallelTest
+    dotnet test --filter TestCategory=sample-parallel-test
     ```
 
 - To run local tests, execute the following command:
     ```bash
-    dotnet test --filter ClassName=MSTest_browserstack.LocalTest
+    dotnet test --filter TestCategory=sample-local-test
     ```
 
 Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
