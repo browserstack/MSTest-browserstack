@@ -1,0 +1,18 @@
+﻿{
+  "capabilities": {
+    "os": "OS X",
+    "osVersion": "Ventura",
+    "browserVersion": "16.5",
+    "local": "false",
+    "buildName": "browserstack-build-1",
+    "sessionName": "BStack test",
+    "source": "mstest:sample"
+  },
+
+  "environments": {
+    "safari": {
+      "browser": "safari"
+    }
+  }
+}
+

@@ -17,19 +17,17 @@
     <PackageReference Include="MSTest.TestAdapter" Version="3.2.2" />
     <PackageReference Include="MSTest.TestFramework" Version="3.2.2" />
     <PackageReference Include="coverlet.collector" Version="3.1.0" />
-    <PackageReference Include="Selenium.WebDriver" Version="4.18.1" />
-    <PackageReference Include="Selenium.Support" Version="4.18.1" />
     <PackageReference Include="BrowserStackLocal" Version="2.3.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.18.1" />
+    <PackageReference Include="Selenium.Support" Version="4.18.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Tests\" />
     <None Remove="assets\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Tests\" />
     <Folder Include="assets\" />
   </ItemGroup>
 </Project>

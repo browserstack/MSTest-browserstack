@@ -1,0 +1,18 @@
+﻿{
+  "capabilities": {
+    "os": "Windows",
+    "osVersion": "10",
+    "browserVersion": "latest",
+    "local": "false",
+    "buildName": "browserstack-build-1",
+    "sessionName": "BStack test",
+    "source": "mstest:sample"
+  },
+
+  "environments": {
+    "chrome": {
+      "browser": "chrome"
+    }
+  }
+}
+

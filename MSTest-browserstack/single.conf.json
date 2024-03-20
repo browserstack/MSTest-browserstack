@@ -1,0 +1,17 @@
+﻿{
+  "capabilities": {
+    "osVersion": "14",
+    "deviceName": "iPhone 12",
+    "realMobile": "true",
+    "local": "false",
+    "buildName": "browserstack-build-1",
+    "sessionName": "BStack test",
+    "source": "mstest:sample"
+  },
+
+  "environments": {
+    "chromium": {
+      "browser": "chromium"
+    }
+  }
+}
