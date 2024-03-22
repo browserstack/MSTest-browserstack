@@ -5,8 +5,8 @@
     "realMobile": "true",
     "local": "true",
     "buildName": "browserstack-build-1",
-    "sessionName": "BStack test",
-    "source": "mstest:sample"
+    "name": "BStack local mstest",
+    "browserstack.source": "mstest:sample-main:v1.0"
   },
 
   "environments": {

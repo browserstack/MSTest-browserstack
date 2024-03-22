@@ -5,8 +5,8 @@
     "browserVersion": "latest",
     "local": "false",
     "buildName": "browserstack-build-1",
-    "sessionName": "BStack test",
-    "source": "mstest:sample"
+    "name": "BStack parallel mstest",
+    "browserstack.source": "mstest:sample-main:v1.0"
   },
 
   "environments": {
