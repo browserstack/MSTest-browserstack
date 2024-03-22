@@ -5,8 +5,8 @@
     "realMobile": "true",
     "browserstack.local": "false",
     "build": "browserstack-build-1",
-    "name": "BStack test",
-    "browserstack.source": "mstest:sample"
+    "name": "BStack parallel mstest",
+    "browserstack.source": "mstest:sample-selenium-3:v1.0"
   },
 
   "environments": {
