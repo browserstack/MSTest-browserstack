@@ -87,4 +87,3 @@ jobs:
             if (result.status !== 201) {
               console.log('Failed to create check run')
             }
-            
