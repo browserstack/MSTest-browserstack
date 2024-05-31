@@ -13,10 +13,8 @@ public class BrowserStackMSTest
     public void Init()
     {
         DriverOptions capability = new OpenQA.Selenium.Chrome.ChromeOptions();
-
         capability.BrowserVersion = "latest";
 
-        capability.AddAdditionalOption("bstack:options", capability);
         driver = new RemoteWebDriver(
           new Uri("http://localhost:4444/wd/hub/"),
           capability
