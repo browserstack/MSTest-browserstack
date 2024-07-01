@@ -1,9 +1,9 @@
 # MSTest-browserstack
-Sample code for running sessions with MStest on Browserstack using Selenium 4. <img src="assets/browserstack.png" width=30 height=25> <img src="assets/MSTest.png" width=50 height=25> 
+Sample code for running sessions with MStest on Browserstack using SDK. <img src="assets/browserstack.png" width=30 height=25> <img src="assets/MSTest.png" width=50 height=25> 
 
 > To perform tests using Selenium 3, please checkout the selenium 3 branch
 
-> To perform tests using SDK, please checkout the sdk branch
+> To perform tests using Selenium 4, please checkout the main branch
 
 [MSTest](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest) Integration with BrowserStack.
 
@@ -12,30 +12,14 @@ Sample code for running sessions with MStest on Browserstack using Selenium 4. <
 ### Installation Steps
 
 1. Clone the repository.
-2. Open the solution `MSTest-BrowserStack.sln` in Visual Studio.
+2. Open the solution `MSTest_browserstack.sln` in Visual Studio.
 3. Install dependencies using NuGet Package Manager:
-   
     ```bash
     dotnet restore
     ```
-4. Build the solution
-
-### Adding Credentials
-
-1. Add your BrowserStack Username and Access Key to the `secrets.json` file in the project. You can follow [this guide](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows#read-the-secret-via-the-configuration-api) to learn how to manage secrets.
-   
-    ```json
-    {
-      "BrowserStackUsername": "your-browserstack-username",
-      "BrowserStackAccessKey": "your-browserstack-access-key"
-    }
-    ```
-
-2. Alternatively, you can set environment variables:
-    - `BROWSERSTACK_USERNAME`
-    - `BROWSERSTACK_ACCESS_KEY`
-
-You can get your browserstack credentials from [here](https://www.browserstack.com/accounts/profile/details)
+4. To run tests on private websites,
+    - set `browserstackLocal`: `true` at `browserstack.yml`
+5. Build the solution
 
 ### Running Tests
 
@@ -49,11 +33,6 @@ You can get your browserstack credentials from [here](https://www.browserstack.c
     dotnet test --filter TestCategory=sample-test
     ```
 
-- To run tests in parallel, execute the following command:
-    ```bash
-    dotnet test --filter TestCategory=sample-parallel-test
-    ```
-
 - To run local tests, execute the following command:
     ```bash
     dotnet test --filter TestCategory=sample-local-test
@@ -61,16 +40,40 @@ You can get your browserstack credentials from [here](https://www.browserstack.c
 
 Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
+## Integrate your test suite
+
+This repository uses the BrowserStack SDK to run tests on BrowserStack. Follow the steps below to install the SDK in your test suite and run tests on BrowserStack:
+
+* Create sample browserstack.yml file with the browserstack related capabilities with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/profile/details) and place it in your root folder.
+* Add nuget library BrowserStack.TestAdapter
+```sh
+dotnet add BrowserStack.TestAdapter
+```
+* Build project `dotnet build`
+
 ### Notes
 
 * View your test results on the [BrowserStack automate dashboard](https://www.browserstack.com/automate).
 * For testing on different browsers, check the [platform configurator](https://www.browserstack.com/automate/c-sharp#setting-os-and-browser).
-* Export the environment variables for BrowserStack credentials:
+* You can export the environment variables for the Username and Access Key of your BrowserStack account
 
-    ```bash
-    export BROWSERSTACK_USERNAME=<browserstack-username> &&
-    export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
-    ```
+  * For Unix-like or Mac machines:
+  ```
+  export BROWSERSTACK_USERNAME=<browserstack-username> &&
+  export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
+  ```
+
+  * For Windows Cmd:
+  ```
+  set BROWSERSTACK_USERNAME=<browserstack-username>
+  set BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
+  ```
+
+  * For Windows Powershell:
+  ```
+  $env:BROWSERSTACK_USERNAME=<browserstack-username>
+  $env:BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
+  ```
 
 ## Additional Resources
 
