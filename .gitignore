@@ -1,7 +1,7 @@
 # globs
 Makefile.in
-*.userprefs
 *.usertasks
+*.userprefs
 config.make
 config.status
 aclocal.m4
